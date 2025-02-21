@@ -8,10 +8,19 @@ ScrollSmoother.create({
 })
 
 
+
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const menuButton = document.getElementById('menuButton');
     const menu = document.getElementById('menu');
     const body = document.body;
+    let isOpen = false;
 
     if (!menuButton || !menu || !body) {
         console.error('One or more elements not found');
@@ -21,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const toggleMenu = (event) => {
         event.preventDefault();
         body.classList.toggle('open');
+        isOpen = !isOpen;
     };
 
     menuButton.addEventListener('click', toggleMenu);
@@ -28,14 +38,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close menu when clicking outside
     window.addEventListener('click', function(event) {
-        if (event.target !== menuButton && !menu.contains(event.target)) {
+        if (isOpen && event.target !== menuButton && !menu.contains(event.target)) {
             body.classList.remove('open');
+            isOpen = false;
         }
     });
 
     window.addEventListener('touchstart', function(event) {
-        if (event.target !== menuButton && !menu.contains(event.target)) {
+        if (isOpen && event.target !== menuButton && !menu.contains(event.target)) {
             body.classList.remove('open');
+            isOpen = false;
         }
     });
 });
