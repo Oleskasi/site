@@ -7,10 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<title>Олег Максимов</title>
-
+	<script src="libs/gsap/gsap.min.js"  ></script>
 	<link rel="stylesheet" href="css/main.css">
-
-	<script src="libs/gsap/gsap.min.js" defer></script>
 	<script src="libs/gsap/ScrollTrigger.min.js" defer></script>
 	<script src="libs/gsap/ScrollSmoother.min.js" defer></script>
 
@@ -25,8 +23,8 @@
 			<header class="main-header">
 				<div class="layers">
 					<div class="layer__header">
-						<div class="layers__caption">powerd by Oleg</div>
-						<div class="layers__title">Это моё порфтолио</div>
+						<div class="layers__caption">powered by Oleg</div>
+						<div class="layers__title">Это моё портфолио</div>
 						
 					</div>
 					<div class="layer layers__base" style="background-image: url(img/layer-base.png);"></div>
@@ -38,9 +36,39 @@
 			<article class="main-article" style="background-image: url(img/dungeon.jpg);">
 				<div class="main-article__content">
 					<h2 class="main-article__header">Обо мне</h2>
-					<p class="main-article__paragraph">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis error provident dignissimos facere. Repellendus tempore autem qui! Quia magnam tempora esse id necessitatibus corrupti mollitia expedita sapiente cum rerum, ut dicta laboriosam!</p>
+					<div class="main-article__paragraph">
+						<div class="paragraph-left">
+							<p style="font-size: 20px;  text-decoration: underline; color: rgb(30, 21, 21);"><strong>Я начинающий веб программист</strong></p>
+							<p><strong style="color:rgb(41, 156, 198);">Учёба:</strong> колледж.</p>
+							<p><strong style="color:rgb(41, 156, 198);">Образование:</strong> О.О.О.</p>
+							<p><strong style="color:rgb(41, 156, 198);">Языки:</strong> Ru, En</p>
+							<p><strong style="color:rgb(41, 156, 198);">Цели:</strong> Карьерный рост</p>
+							<p><strong style="color:rgb(41, 156, 198);">Мне:</strong>
+								<span id="years">0</span> лет,
+								<span id="months">0</span> месяцев,
+								<span id="days">0</span> дней,
+								<span id="hours">00</span> час,
+								<span id="minutes">00</span> мин,
+								<span id="seconds">00</span> сек.</p>
+						</div>
+						<div class="divider"></div>
+						<div class="paragraph-right">
+							<p><strong style="font-size: 20px; text-decoration: underline; color: rgb(30, 21, 21); ">О программировании</strong></p>
+							<p><strong style="color:rgb(41, 156, 198);">Языки:</strong> JavaScript</p>
+							<p><strong style="color:rgb(41, 156, 198);">Библиотеки:</strong> GSAP + ScrollTrigger, swiper-bundle </p>
+							<p><strong style="color:rgb(41, 156, 198);">Фреймворки:</strong> Bootstrap</p>
+							<p><strong style="color:rgb(41, 156, 198);">DevTools:</strong> VSC</p>
+							<p><strong style="color:rgb(41, 156, 198);">Хостинг:</strong> GitHub</p>
+							<p><strong style="color:rgb(41, 156, 198);">Проекты:</strong>
+								 <a target="_blank" href="https://oleskasi.github.io/MathProject/">1</a>
+								<a target="_blank" href="https://oleskasi.github.io/pavliksite/">2</a>
+								<a target="_blank" href="https://oleskasi.github.io/egorik-site/">3</a>
+								<a target="_blank" href="https://oleskasi.github.io/gelendjiks/">4</a>
+								</p>
+						</div>
+					</div>
 				</div>
-				<div class="copy">© Олег Максимов</div>
+				<div class="copy">© Максимов О.М</div>
 			</article>
 
 		</div>
@@ -50,15 +78,120 @@
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
+
     </div>
     <div class="menu" id="menu">
         <a href="index.html">Главная</a>
         <a href="index2.html">Мои кенты</a>
-        <a href="index3.html">Page 3</a>
+        <a href="index3.html">Обо мне</a>
     </div>
-    <div class="content">
-        <!-- Your main content here -->
-    </div>
+
+
+
+
+
+
+
+
+<script>
+	gsap.from('.layers__title',{duration: 1.2, opacity: 0, delay: 0.2, y: -50 });
+	gsap.from('.layers__caption',{
+		duration: 2,
+		 opacity: 0,
+		  delay: 1.2,
+		   y: -50 
+	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	document.addEventListener('DOMContentLoaded', () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+
+
+
+
+    gsap.set('.paragraph-left', { opacity: 0, x: -100 }); 
+
+	gsap.set('.paragraph-right', { opacity: 0, x: 100 }); 
+
+
+    gsap.to('.paragraph-left', {
+        scrollTrigger: {trigger: '.main-article__paragraph',start: 'top 80%', toggleActions: 'play none none reset' },
+        	opacity: 1,x: 0, duration: 1,delay: 0.11,ease: 'power2.out',});
+
+    gsap.to('.paragraph-right', {
+		scrollTrigger: {trigger: '.main-article__paragraph',start: 'top 80%',toggleActions: 'play none none reset'},
+			opacity: 1,x: 0,delay: 0.11,duration: 1,ease: 'power2.out',
+    });
+});
+
+
+
+
+
+	
+
+
+
+
+
+
+
+    const startDate = new Date('March 7, 2008 00:00:00');
+
+    function updateTimer() {
+        const now = new Date();
+        let diff = now - startDate;
+
+        let years = now.getFullYear() - startDate.getFullYear();
+        let months = now.getMonth() - startDate.getMonth();
+        let days = now.getDate() - startDate.getDate();
+
+        if (months < 0 || (months === 0 && now.getDate() < startDate.getDate())) {
+            years--;
+            months += 12;
+        }
+        if (days < 0) {
+            const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+            days += lastMonth.getDate();
+            months--;
+        }
+        if (months < 0) {
+            years--;
+            months += 12;
+        }
+        const hours = now.getHours() - startDate.getHours();
+        const minutes = now.getMinutes() - startDate.getMinutes();
+        const seconds = now.getSeconds() - startDate.getSeconds();
+
+        let totalSeconds = Math.floor(diff / 1000);
+        const calculatedHours = Math.floor(totalSeconds / 3600) % 24;
+        const calculatedMinutes = Math.floor(totalSeconds / 60) % 60;
+        const calculatedSeconds = totalSeconds % 60;
+
+        document.getElementById('years').textContent = years;
+        document.getElementById('months').textContent = months;
+        document.getElementById('days').textContent = days;
+        document.getElementById('hours').textContent = calculatedHours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = calculatedMinutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = calculatedSeconds.toString().padStart(2, '0');
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+</script>
 
 
 
