@@ -123,18 +123,18 @@
 
 
 
-    gsap.set('.paragraph-left', { opacity: 0, x: -100 }); 
+    gsap.set('.paragraph-left', { opacity: 0, y: 100 }); 
 
-	gsap.set('.paragraph-right', { opacity: 0, x: 100 }); 
+	gsap.set('.paragraph-right', { opacity: 0, y: 100 }); 
 
 
     gsap.to('.paragraph-left', {
         scrollTrigger: {trigger: '.main-article__paragraph',start: 'top 80%', toggleActions: 'play none none reset' },
-        	opacity: 1,x: 0, duration: 1,delay: 0.11,ease: 'power2.out',});
+        	opacity: 1,y: 0, duration: 1,delay: 0.11,ease: 'power2.out',});
 
     gsap.to('.paragraph-right', {
 		scrollTrigger: {trigger: '.main-article__paragraph',start: 'top 80%',toggleActions: 'play none none reset'},
-			opacity: 1,x: 0,delay: 0.11,duration: 1,ease: 'power2.out',
+			opacity: 1,y: 0,delay: 0.11,duration: 1,ease: 'power2.out',
     });
 });
 
