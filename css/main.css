@@ -111,17 +111,30 @@ body {
 	transform: var(--main-article-transform);
 	transition: var(--transition);
 	will-change: transform;
-
 	color: var(--text);
 	text-shadow: 0 0 15px #9d822b;
 }
 .main-article__paragraph {
-	max-width: calc(var(--index) * 30);
-	font-size: calc(var(--index) * .9);
-	margin-top: calc(var(--index) / 1.25);
-	transform: var(--main-article-transform);
-	transition: var(--transition);
-	will-change: transform;
+    display: flex;
+    align-items: center; /* Выравнивание по центру */
+    justify-content: space-between; /* Пространство между колонками */
+    max-width: calc(var(--index) * 30); /* Ограничение ширины */
+    margin: 0 auto; /* Центрирование */
+}
+
+.paragraph-left,
+.paragraph-right {
+    flex: 1; /* Обе части занимают равное пространство */
+    font-size: calc(var(--index) * 0.9);
+    color: var(--text);
+    text-shadow: 0 0 15px #9d822b;
+}
+
+.divider {
+    width: 1px; /* Толщина черты */
+     min-height: 220px;
+    background-color: rgb(255, 255, 255); /* Цвет черты */
+    margin: 0 20px; /* Отступы между текстом и чертой */
 }
 .content {
 	will-change: transform;
@@ -134,7 +147,9 @@ body {
 	letter-spacing: calc(var(--index) / 37.5);
 }
 
-
+span {
+	font-weight: bold;
+}
 
 
 
@@ -143,7 +158,16 @@ body::-webkit-scrollbar {
 	display: none;
   }
 
+a{
+	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 23px;
+	color: rgb(232, 1, 1);
+	text-decoration: none;
+}
 
+a:hover{
+	color: chartreuse;
+}
 
 
 
@@ -182,13 +206,15 @@ body::-webkit-scrollbar {
 }
 
 .bar {
+
     height: 3px;
     width: 100%;
-    background-color: #333;
+    background-color: #828181;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .menu {
+	
 	position: fixed;
     top: 0;
     right: -250px; /* initial position off-screen */
@@ -287,7 +313,6 @@ body::-webkit-scrollbar {
     }
 
     .menu a {
-		
 			text-decoration: none;
 		color: #333;
 		font-size: 18px;
@@ -338,3 +363,14 @@ body::-webkit-scrollbar {
         pointer-events: auto;
     }
 }
+
+
+
+
+
+
+
+
+
+
+

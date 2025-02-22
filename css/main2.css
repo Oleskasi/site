@@ -275,7 +275,12 @@ body, html {
 
 
 
-
+a{
+	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 23px;
+	color: rgb(232, 1, 1);
+	text-decoration: none;
+}
 
 
 
@@ -332,7 +337,7 @@ body::-webkit-scrollbar {
 }
 
 .menu {
-	z-index: 999999999999999999;
+	z-index: 9;
 	position: fixed;
     top: 0;
     right: -250px; /* initial position off-screen */
@@ -357,7 +362,7 @@ body::-webkit-scrollbar {
 
 .menu a:hover {
     
-	color: var(--text);
+	color: rgba(255, 255, 255, 0.771);
 
 	text-shadow: 0 0 25px #9d822b;
 }
